@@ -5,8 +5,8 @@ class Team {
     private $totalGoals = 0;
     private $totalGames = 0;
 
-    public function __construct($hGoals) {
-        $this->teamName = $hGoals;
+    public function __construct($teamName) {
+        $this->teamName = $teamName;
     }
 
     public function finalScore($hGoals, $aGoals) {
@@ -17,6 +17,13 @@ class Team {
             $this->totalPoints = $this->totalPoints + 3;
         } elseif ($hGoals == $aGoals) {
             $this->totalPoints = $this->totalPoints + 1;
+        }
+    }
+        public function getGoalAverage() {
+        if ($this->totalGames > 0) {
+            return $this->totalGoals / $this->totalGames;
+        } else {
+            return 0;
         }
     }
 }
